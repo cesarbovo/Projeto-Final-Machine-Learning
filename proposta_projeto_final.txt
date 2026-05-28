@@ -1,0 +1,32 @@
+Olá pessoal
+Neste desafio vocês encontrarão: extremo desbalanceamento de classes, variáveis anonimizadas ou com muitos valores nulos (que exigem imputação avançada), múltiplas tabelas (joins) ou necessidade de criar métricas de negócio muito específicas (custo do falso positivo vs. falso negativo).
+Vocês atuarão como 4 consultorias. Cada uma assumirá um cliente diferente, mas todas enfrentarão problemas de nível sênior.
+Squad 1: Detecção de Fraude Silenciosa em Tempo Real
+Cliente: GlobalPay Solutions (Gateway de Pagamentos B2B2C)
+O Desafio: Bloquear transações fraudulentas de cartão de crédito no exato momento da compra, sem gerar atrito para os bons clientes.
+Por que é desafiador? O desbalanceamento é brutal (apenas 0,17% de fraudes). As variáveis originais foram transformadas por PCA (são chamadas de V1, V2... V28), o que impossibilita a intuição de negócio básica. O sucesso da equipe dependerá puramente da força matemática no Explore e Modify, além de exigir muito cuidado no Sample para não enviesar o modelo (técnicas de sub-amostragem ou pesos de classe serão vitais). Acurácia aqui é uma métrica inútil; o foco do Assess deve ser Precision-Recall AUC.
+Dataset: Credit Card Fraud Detection (https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+
+Os Entregáveis Exigidos (Para Todas as Squads)
+
+Para que o framework SEMMA seja aplicado com rigor, a nota final será composta pela entrega de dois produtos:Entregável 1: A Aplicação (O Produto Final de Previsão)
+O cliente não quer ver o notebook Jupyter, ele quer um produto funcional.
+Interface Gráfica: Utilizar Streamlit (recomendado por ser fácil e em Python), Gradio, ou Tkinter.
+Modelo Embarcado: O modelo .pkl gerado na letra A (Assess) deve estar importado na aplicação.
+Funcionalidade: O usuário do aplicativo deve poder subir um arquivo .csv novo (simulando os clientes do dia) e o aplicativo deve retornar o mesmo arquivo com uma nova coluna contendo a Probabilidade (Score) e a Decisão (Bloquear/Aprovar/Revisar).
+Entregável 2: A Documentação Executiva (Traduzindo o SEMMA)
+
+
+Um relatório em PDF focado em negócios, estruturado na ótica do framework:
+Sumário Executivo: O problema resolvido e o resultado principal.
+A Jornada (SEMMA):
+Sample & Explore: Como garantiram que o modelo é confiável (isolamento temporal/OOT)? Quais foram os maiores problemas dos dados originais (nulos, outliers) e o que eles ensinaram sobre o negócio?
+Modify: Quais foram as 3 melhores variáveis (features) criadas pela equipe a partir dos dados originais que mais ajudaram na previsão?
+Model: Qual foi o algoritmo vencedor após os testes de hiperparâmetros?
+Assess (O Valor Financeiro): O clímax do relatório. Usando a Curva ROC, matriz de confusão e métricas de custo, eles devem comprovar quantos reais a empresa vai salvar usando o modelo. Ex: "Dos 100 caminhões que quebrariam, nosso modelo previu 85, gerando uma economia de R$ X mil" ou "Capturamos 70% das fraudes abordando apenas os 5% de transações mais suspeitas."O Pitch de Consultoria (A Defesa da Nota)
+
+Marque o último dia do projeto como o "Board Meeting".
+Cada squad terá 15 minutos.
+Eles farão uma apresentação voltada para você (o "Diretor da Empresa Cliente").
+Devem fazer a demonstração ao vivo do aplicativo funcionando e defender suas escolhas do SEMMA, focando no ganho financeiro apontado no Assess.
+Pratiquem a habilidade mais exigida no mercado: traduzir a complexidade de um modelo de Machine Learning em valor financeiro para o cliente.
