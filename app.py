@@ -275,6 +275,8 @@ if uploaded_file is not None:
     try:
         df_input = pd.read_csv(uploaded_file)
         st.success(f"✔️ Lote carregado com sucesso: {uploaded_file.name} ({len(df_input)} transações)")
+        if uploaded_file.name == 'clientes_do_dia.csv':
+            using_default = True
     except Exception as e:
         st.error(f"Erro ao ler o arquivo enviado: {e}")
 else:
