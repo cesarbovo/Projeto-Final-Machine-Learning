@@ -14,10 +14,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Injeção de CSS Customizado para Estética Premium (Vibrant Dark Mode / Glassmorphism)
+# Injeção de CSS Customizado para Estética Premium (Tema Claro / Acessível)
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght=300;400;600;700&display=swap');
     
     * {
         font-family: 'Outfit', sans-serif !important;
@@ -25,14 +25,14 @@ st.markdown("""
     
     /* Background Geral */
     .stApp {
-        background-color: #0B0F19;
-        color: #F3F4F6;
+        background-color: #F8FAFC;
+        color: #1E293B;
     }
     
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
-        background-color: #111827 !important;
-        border-right: 1px solid #1F2937;
+        background-color: #F1F5F9 !important;
+        border-right: 1px solid #E2E8F0;
     }
     
     /* ----------------------------------------------------
@@ -40,57 +40,68 @@ st.markdown("""
        ---------------------------------------------------- */
     /* Textos gerais do corpo e parágrafos */
     .stApp p, .stApp li, .stApp span, .stApp div[data-testid="stMarkdownContainer"] p {
-        color: #E5E7EB !important; /* Cinza claro para leitura perfeita */
+        color: #334155 !important; /* Slate 700 para leitura perfeita */
     }
     
     /* Títulos e Cabeçalhos */
     .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
-        color: #FFFFFF !important; /* Branco de alto impacto */
+        color: #0F172A !important; /* Slate 900 de alto impacto */
     }
     
     /* Rótulos dos Widgets (sliders, selectboxes, inputs) */
     .stApp label, .stApp div[data-testid="stWidgetLabel"] p, .stApp div[data-testid="stWidgetLabel"] span {
-        color: #FFFFFF !important; /* Branco de alto contraste */
+        color: #0F172A !important; /* Slate 900 de alto contraste */
         font-weight: 600 !important;
         font-size: 14px !important;
     }
     
     /* Valores de sliders e detalhes numéricos */
     div[data-testid="stSlider"] div, div[data-testid="stSlider"] span, div[data-testid="stSlider"] p {
-        color: #E5E7EB !important;
+        color: #475569 !important;
     }
     
     /* Textos das Abas (Tabs) */
     button[data-baseweb="tab"] p, button[data-baseweb="tab"] span {
-        color: #9CA3AF !important; 
+        color: #64748B !important; 
     }
     button[data-baseweb="tab"][aria-selected="true"] p, button[data-baseweb="tab"][aria-selected="true"] span {
-        color: #FFFFFF !important; /* Branco ativo */
+        color: #2563EB !important; /* Azul ativo */
         font-weight: 700 !important;
     }
     
     /* Elementos na Sidebar */
     section[data-testid="stSidebar"] p, section[data-testid="stSidebar"] label, section[data-testid="stSidebar"] span, section[data-testid="stSidebar"] h2 {
-        color: #FFFFFF !important;
+        color: #0F172A !important;
     }
     
     /* Custom Card */
     .metric-card {
-        background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.5));
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
         border-radius: 16px;
         padding: 24px;
         text-align: center;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
         margin-bottom: 16px;
     }
     
+    .metric-card-baseline {
+        border-top: 4px solid #94A3B8 !important;
+    }
+    
+    .metric-card-modelo {
+        border-top: 4px solid #2563EB !important;
+    }
+    
+    .metric-card-economia {
+        border-top: 4px solid #0D9488 !important;
+    }
+    
     .metric-title {
-        font-size: 14px;
-        color: #E5E7EB; /* Alterado de #9CA3AF para #E5E7EB para contraste perfeito */
+        font-size: 13px;
+        color: #64748B;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
         font-weight: 600;
         margin-bottom: 8px;
     }
@@ -99,27 +110,27 @@ st.markdown("""
         font-size: 28px;
         font-weight: 700;
         margin-bottom: 4px;
-        color: #FFFFFF !important;
+        color: #0F172A !important;
     }
     
     .metric-sub {
         font-size: 12px;
-        color: #9CA3AF; /* Alterado de #6B7280 para #9CA3AF para contraste perfeito */
+        color: #64748B;
     }
     
     /* Custom Headers */
     .main-title {
-        background: linear-gradient(to right, #A78BFA, #F472B6); /* Cores mais claras/neon */
+        background: linear-gradient(to right, #1E3A8A, #0D9488); /* Tons de azul e verde-azul */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 700;
-        font-size: 40px;
+        font-size: 38px;
         margin-bottom: 4px;
         text-align: left;
     }
     
     .sub-title {
-        color: #D1D5DB; /* Alterado de #9CA3AF para #D1D5DB */
+        color: #475569;
         font-size: 16px;
         margin-bottom: 24px;
         text-align: left;
@@ -127,26 +138,26 @@ st.markdown("""
     
     /* Status Badges */
     .badge {
-        padding: 4px 12px;
+        padding: 6px 12px;
         border-radius: 9999px;
         font-size: 12px;
         font-weight: 600;
         display: inline-block;
     }
     .badge-bloquear {
-        background-color: rgba(239, 68, 68, 0.25);
-        color: #F87171; /* Tom mais claro/acessível */
-        border: 1px solid rgba(239, 68, 68, 0.5);
+        background-color: #FEE2E2;
+        color: #991B1B;
+        border: 1px solid #FCA5A5;
     }
     .badge-revisar {
-        background-color: rgba(245, 158, 11, 0.25);
-        color: #FBBF24; /* Tom mais claro/acessível */
-        border: 1px solid rgba(245, 158, 11, 0.5);
+        background-color: #FEF3C7;
+        color: #92400E;
+        border: 1px solid #FDE68A;
     }
     .badge-aprovar {
-        background-color: rgba(16, 185, 129, 0.25);
-        color: #34D399; /* Tom mais claro/acessível */
-        border: 1px solid rgba(16, 185, 129, 0.5);
+        background-color: #D1FAE5;
+        color: #065F46;
+        border: 1px solid #6EE7B7;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -189,9 +200,9 @@ gt_labels = carregar_ground_truth()
 # ----------------------------------------------------
 # Configuração da Barra Lateral (Sidebar)
 # ----------------------------------------------------
-st.sidebar.image("https://cdn-icons-png.flaticon.com/512/625/625591.png", width=70)
-st.sidebar.markdown("<h2 style='margin-top:0px;'>GlobalPay Solutions</h2>", unsafe_allow_html=True)
-st.sidebar.markdown("*Portal de Prevenção a Fraude B2B2C*")
+st.sidebar.image("globalplay_logo.png", width=160)
+st.sidebar.markdown("<h2 style='margin-top:10px; font-size: 22px; color: #0F172A;'>GlobalPay Solutions</h2>", unsafe_allow_html=True)
+st.sidebar.markdown("<p style='font-style: italic; color: #475569; margin-top:-10px; margin-bottom: 10px;'>Portal de Prevenção a Fraude B2B2C</p>", unsafe_allow_html=True)
 st.sidebar.divider()
 
 st.sidebar.subheader("🎛️ Limiares de Decisão")
@@ -240,7 +251,7 @@ custo_fp = st.sidebar.number_input(
 # Cabeçalho Principal da Aplicação
 # ----------------------------------------------------
 st.markdown("<h1 class='main-title'>🛡️ Detecção de Fraude Silenciosa</h1>", unsafe_allow_html=True)
-st.markdown("<p class='sub-title'>Gateway GlobalPay B2B2C — Monitoramento e Mitigação de Riscos de Transações em Tempo Real</p>", unsafe_allow_html=True)
+st.markdown("<p class='sub-title'>Portal GlobalPay B2B2C — Monitoramento e Mitigação de Riscos de Transações em Tempo Real</p>", unsafe_allow_html=True)
 
 # Verificação se o modelo e escalonador estão carregados
 if model is None or scaler is None:
@@ -395,29 +406,30 @@ if df_input is not None:
                 
                 with col1:
                     st.markdown(f"""
-                    <div class="metric-card">
+                    <div class="metric-card metric-card-baseline">
                         <div class="metric-title">📉 Custo SEM Modelo (Baseline)</div>
-                        <div class="metric-value" style="color: #FFFFFF;">R$ {prejuizo_baseline:,.2f}</div>
-                        <div class="metric-sub" style="color: #D1D5DB;">{total_fraudes_reais} fraudes reais 100% aprovadas</div>
+                        <div class="metric-value">R$ {prejuizo_baseline:,.2f}</div>
+                        <div class="metric-sub">{total_fraudes_reais} fraudes reais 100% aprovadas</div>
                     </div>
                     """, unsafe_allow_html=True)
                     
                 with col2:
                     st.markdown(f"""
-                    <div class="metric-card">
+                    <div class="metric-card metric-card-modelo">
                         <div class="metric-title">🛡️ Custo COM Nosso Modelo</div>
-                        <div class="metric-value" style="color: #F472B6;">R$ {prejuizo_modelo:,.2f}</div>
-                        <div class="metric-sub" style="color: #D1D5DB;">{fn_aprovados} vazamentos (FN) | {fp_bloqueados + fp_revisados} falsos alarmes</div>
+                        <div class="metric-value" style="color: #2563EB !important;">R$ {prejuizo_modelo:,.2f}</div>
+                        <div class="metric-sub">{fn_aprovados} vazamentos (FN) | {fp_bloqueados + fp_revisados} falsos alarmes</div>
                     </div>
                     """, unsafe_allow_html=True)
                     
                 with col3:
-                    cor_economia = "#34D399" if economia_liquida > 0 else "#F87171"
+                    cor_economia = "#0D9488" if economia_liquida > 0 else "#DC2626"
+                    border_economia = "rgba(13, 148, 136, 0.3)" if economia_liquida > 0 else "rgba(220, 38, 38, 0.3)"
                     st.markdown(f"""
-                    <div class="metric-card" style="border: 1px solid rgba(52, 211, 153, 0.35);">
-                        <div class="metric-title" style="color: #34D399; font-weight: 700;">💰 Economia Líquida Gerada</div>
-                        <div class="metric-value" style="color: {cor_economia}; font-size: 30px;">R$ {economia_liquida:,.2f}</div>
-                        <div class="metric-sub" style="color: #D1D5DB;">Retorno Financeiro Direto de {roi_percentual:.1f}%</div>
+                    <div class="metric-card metric-card-economia" style="border: 1px solid {border_economia};">
+                        <div class="metric-title" style="color: {cor_economia}; font-weight: 700;">💰 Economia Líquida Gerada</div>
+                        <div class="metric-value" style="color: {cor_economia} !important; font-size: 30px;">R$ {economia_liquida:,.2f}</div>
+                        <div class="metric-sub" style="color: #475569;">Retorno Financeiro Direto de {roi_percentual:.1f}%</div>
                     </div>
                     """, unsafe_allow_html=True)
                 
@@ -447,27 +459,28 @@ if df_input is not None:
                 col1, col2, col3 = st.columns(3)
                 with col1:
                     st.markdown(f"""
-                    <div class="metric-card">
+                    <div class="metric-card metric-card-baseline">
                         <div class="metric-title">📉 Custo Estimado SEM Modelo</div>
-                        <div class="metric-value" style="color: #FFFFFF;">R$ {prejuizo_baseline:,.2f}</div>
-                        <div class="metric-sub" style="color: #D1D5DB;">Expectativa baseada nos scores brutos do modelo</div>
+                        <div class="metric-value">R$ {prejuizo_baseline:,.2f}</div>
+                        <div class="metric-sub">Expectativa baseada nos scores brutos do modelo</div>
                     </div>
                     """, unsafe_allow_html=True)
                 with col2:
                     st.markdown(f"""
-                    <div class="metric-card">
+                    <div class="metric-card metric-card-modelo">
                         <div class="metric-title">🛡️ Custo Estimado COM Modelo</div>
-                        <div class="metric-value" style="color: #F472B6;">R$ {prejuizo_modelo:,.2f}</div>
-                        <div class="metric-sub" style="color: #D1D5DB;">Prejuízo projetado com as decisões recomendadas</div>
+                        <div class="metric-value" style="color: #2563EB !important;">R$ {prejuizo_modelo:,.2f}</div>
+                        <div class="metric-sub">Prejuízo projetado com as decisões recomendadas</div>
                     </div>
                     """, unsafe_allow_html=True)
                 with col3:
-                    cor_economia = "#34D399" if economia_liquida > 0 else "#F87171"
+                    cor_economia = "#0D9488" if economia_liquida > 0 else "#DC2626"
+                    border_economia = "rgba(13, 148, 136, 0.3)" if economia_liquida > 0 else "rgba(220, 38, 38, 0.3)"
                     st.markdown(f"""
-                    <div class="metric-card" style="border: 1px solid rgba(52, 211, 153, 0.35);">
-                        <div class="metric-title" style="color: #34D399; font-weight: 700;">💰 Economia Líquida Estimada</div>
-                        <div class="metric-value" style="color: {cor_economia}; font-size: 30px;">R$ {economia_liquida:,.2f}</div>
-                        <div class="metric-sub" style="color: #D1D5DB;">Retorno esperado projetado: {roi_percentual:.1f}%</div>
+                    <div class="metric-card metric-card-economia" style="border: 1px solid {border_economia};">
+                        <div class="metric-title" style="color: {cor_economia}; font-weight: 700;">💰 Economia Líquida Estimada</div>
+                        <div class="metric-value" style="color: {cor_economia} !important; font-size: 30px;">R$ {economia_liquida:,.2f}</div>
+                        <div class="metric-sub" style="color: #475569;">Retorno esperado projetado: {roi_percentual:.1f}%</div>
                     </div>
                     """, unsafe_allow_html=True)
                 
@@ -503,8 +516,8 @@ if df_input is not None:
                 colors = ['#10B981', '#F59E0B', '#EF4444']
                 
                 fig, ax = plt.subplots(figsize=(6, 4))
-                fig.patch.set_facecolor('#0B0F19')
-                ax.set_facecolor('#0B0F19')
+                fig.patch.set_facecolor('none')
+                ax.set_facecolor('none')
                 
                 wedges, texts, autotexts = ax.pie(
                     sizes, 
@@ -512,13 +525,15 @@ if df_input is not None:
                     autopct=lambda p: '{:.2f}%'.format(p) if p > 0 else '', 
                     startangle=140, 
                     colors=colors,
-                    textprops=dict(color="w", weight="bold")
+                    textprops=dict(color="#1E293B", weight="bold")
                 )
                 for t in texts:
-                    t.set_color('#F3F4F6')
+                    t.set_color('#334155')
+                for at in autotexts:
+                    at.set_color('#FFFFFF')
                 
                 ax.axis('equal')  
-                plt.title("Proporção das Decisões no Lote", color="w", fontsize=14, pad=15)
+                plt.title("Proporção das Decisões no Lote", color="#0F172A", fontsize=14, pad=15)
                 st.pyplot(fig)
                 plt.close()
             
@@ -624,21 +639,21 @@ if df_input is not None:
                     pr_auc = average_precision_score(y_real, scores)
                     
                     fig, ax = plt.subplots(figsize=(6, 4.5))
-                    fig.patch.set_facecolor('#0B0F19')
-                    ax.set_facecolor('#111827')
+                    fig.patch.set_facecolor('none')
+                    ax.set_facecolor('#FFFFFF')
                     
-                    ax.plot(recall, precision, label=f"OOT (PR-AUC = {pr_auc:.4f})", color='#8B5CF6', lw=2.5)
-                    ax.set_xlabel("Recall (Taxa de Captura de Fraudes)", color="#9CA3AF")
-                    ax.set_ylabel("Precision (Taxa de Acertos do Modelo)", color="#9CA3AF")
-                    ax.set_title("Curva Precision-Recall no Teste Temporal OOT", color="w", fontsize=12, pad=10)
+                    ax.plot(recall, precision, label=f"OOT (PR-AUC = {pr_auc:.4f})", color='#2563EB', lw=2.5)
+                    ax.set_xlabel("Recall (Taxa de Captura de Fraudes)", color="#475569")
+                    ax.set_ylabel("Precision (Taxa de Acertos do Modelo)", color="#475569")
+                    ax.set_title("Curva Precision-Recall no Teste Temporal OOT", color="#0F172A", fontsize=12, pad=10)
                     
-                    ax.tick_params(colors='#9CA3AF')
-                    ax.grid(True, color="#1F2937", alpha=0.5)
-                    ax.legend(facecolor='#111827', edgecolor='#1F2937', labelcolor='w')
+                    ax.tick_params(colors='#475569')
+                    ax.grid(True, color="#E2E8F0", alpha=0.8)
+                    ax.legend(facecolor='#FFFFFF', edgecolor='#E2E8F0', labelcolor='#0F172A')
                     
-                    # Remover bordas
+                    # Customizar bordas
                     for spine in ax.spines.values():
-                        spine.set_color('#1F2937')
+                        spine.set_color('#E2E8F0')
                         
                     st.pyplot(fig)
                     plt.close()
