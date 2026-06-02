@@ -19,8 +19,8 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght=300;400;600;700&display=swap');
     
-    * {
-        font-family: 'Outfit', sans-serif !important;
+    html, body, [data-testid="stAppViewContainer"], .stApp {
+        font-family: 'Outfit', sans-serif;
     }
     
     /* Background Geral */
